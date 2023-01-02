@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Milestone2ModelStoreContainer" CdmEntityContainer="Milestone2Entities">
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="Milestone2Model.Club">
+        <MappingFragment StoreEntitySet="Club">
+          <ScalarProperty Name="club_ID" ColumnName="club_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubRepresentatives">
+      <EntityTypeMapping TypeName="Milestone2Model.ClubRepresentative">
+        <MappingFragment StoreEntitySet="ClubRepresentative">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Club_ID" ColumnName="Club_ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fans">
+      <EntityTypeMapping TypeName="Milestone2Model.Fan">
+        <MappingFragment StoreEntitySet="Fan">
+          <ScalarProperty Name="National_ID" ColumnName="National_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birth_Date" ColumnName="Birth_Date" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HostRequests">
+      <EntityTypeMapping TypeName="Milestone2Model.HostRequest">
+        <MappingFragment StoreEntitySet="HostRequest">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="representative_ID" ColumnName="representative_ID" />
+          <ScalarProperty Name="Manager_ID" ColumnName="Manager_ID" />
+          <ScalarProperty Name="Match_ID" ColumnName="Match_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="Milestone2Model.Match">
+        <MappingFragment StoreEntitySet="Match">
+          <ScalarProperty Name="match_ID" ColumnName="match_ID" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="Host_Club_ID" ColumnName="Host_Club_ID" />
+          <ScalarProperty Name="Guest_Club_ID" ColumnName="Guest_Club_ID" />
+          <ScalarProperty Name="Stadium_ID" ColumnName="Stadium_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SportsAssociationManagers">
+      <EntityTypeMapping TypeName="Milestone2Model.SportsAssociationManager">
+        <MappingFragment StoreEntitySet="SportsAssociationManager">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stadia">
+      <EntityTypeMapping TypeName="Milestone2Model.Stadium">
+        <MappingFragment StoreEntitySet="Stadium">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StadiumManagers">
+      <EntityTypeMapping TypeName="Milestone2Model.StadiumManager">
+        <MappingFragment StoreEntitySet="StadiumManager">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Stadium_ID" ColumnName="Stadium_ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemAdmins">
+      <EntityTypeMapping TypeName="Milestone2Model.SystemAdmin">
+        <MappingFragment StoreEntitySet="SystemAdmin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUsers">
+      <EntityTypeMapping TypeName="Milestone2Model.SystemUser">
+        <MappingFragment StoreEntitySet="SystemUser">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="Milestone2Model.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Match_ID" ColumnName="Match_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="allFans">
+      <EntityTypeMapping TypeName="Milestone2Model.allFan">
+        <MappingFragment StoreEntitySet="allFans">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="National_ID" ColumnName="National_ID" />
+          <ScalarProperty Name="Birth_Date" ColumnName="Birth_Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.allPendingRequests" FunctionImportName="allPendingRequests">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.allPendingRequests_Result">
+          <ScalarProperty Name="ClubRepresentativeName" ColumnName="ClubRepresentativeName" />
+          <ScalarProperty Name="GuestClubName" ColumnName="GuestClubName" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.allUnassignedMatches" FunctionImportName="allUnassignedMatches">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.allUnassignedMatches_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.availableMatchesToAttend" FunctionImportName="availableMatchesToAttend">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.availableMatchesToAttend_Result">
+          <ScalarProperty Name="HostClubName" ColumnName="HostClubName" />
+          <ScalarProperty Name="GuestClubName" ColumnName="GuestClubName" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.matchWithHighestAttendance" FunctionImportName="matchWithHighestAttendance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.matchWithHighestAttendance_Result">
+          <ScalarProperty Name="HostClubName" ColumnName="HostClubName" />
+          <ScalarProperty Name="GuestClubName" ColumnName="GuestClubName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.requestsFromClub" FunctionImportName="requestsFromClub">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.requestsFromClub_Result">
+          <ScalarProperty Name="HostcluB" ColumnName="HostcluB" />
+          <ScalarProperty Name="GuestClub" ColumnName="GuestClub" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.upcomingMatchesOfClub" FunctionImportName="upcomingMatchesOfClub">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.upcomingMatchesOfClub_Result">
+          <ScalarProperty Name="given_club" ColumnName="given_club" />
+          <ScalarProperty Name="competing_club" ColumnName="competing_club" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="staduim" ColumnName="staduim" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Milestone2Model.Store.viewAvailableStadiumsOn" FunctionImportName="viewAvailableStadiumsOn">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Milestone2Model.viewAvailableStadiumsOn_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="acceptRequest" FunctionName="Milestone2Model.Store.acceptRequest" />
+    <FunctionImportMapping FunctionImportName="addAssociationManager" FunctionName="Milestone2Model.Store.addAssociationManager" />
+    <FunctionImportMapping FunctionImportName="addClub" FunctionName="Milestone2Model.Store.addClub" />
+    <FunctionImportMapping FunctionImportName="addFan" FunctionName="Milestone2Model.Store.addFan" />
+    <FunctionImportMapping FunctionImportName="addHostRequest" FunctionName="Milestone2Model.Store.addHostRequest" />
+    <FunctionImportMapping FunctionImportName="addNewMatch" FunctionName="Milestone2Model.Store.addNewMatch" />
+    <FunctionImportMapping FunctionImportName="addRepresentative" FunctionName="Milestone2Model.Store.addRepresentative" />
+    <FunctionImportMapping FunctionImportName="addStadium" FunctionName="Milestone2Model.Store.addStadium" />
+    <FunctionImportMapping FunctionImportName="addStadiumManager" FunctionName="Milestone2Model.Store.addStadiumManager" />
+    <FunctionImportMapping FunctionImportName="addTicket" FunctionName="Milestone2Model.Store.addTicket" />
+    <FunctionImportMapping FunctionImportName="blockFan" FunctionName="Milestone2Model.Store.blockFan" />
+    <FunctionImportMapping FunctionImportName="clearAllTables" FunctionName="Milestone2Model.Store.clearAllTables" />
+    <FunctionImportMapping FunctionImportName="createAllTables" FunctionName="Milestone2Model.Store.createAllTables" />
+    <FunctionImportMapping FunctionImportName="deleteClub" FunctionName="Milestone2Model.Store.deleteClub" />
+    <FunctionImportMapping FunctionImportName="deleteMatch" FunctionName="Milestone2Model.Store.deleteMatch" />
+    <FunctionImportMapping FunctionImportName="deleteMatchesOnStadium" FunctionName="Milestone2Model.Store.deleteMatchesOnStadium" />
+    <FunctionImportMapping FunctionImportName="deleteStadium" FunctionName="Milestone2Model.Store.deleteStadium" />
+    <FunctionImportMapping FunctionImportName="dropAllProceduresFunctionsViews" FunctionName="Milestone2Model.Store.dropAllProceduresFunctionsViews" />
+    <FunctionImportMapping FunctionImportName="dropAllTables" FunctionName="Milestone2Model.Store.dropAllTables" />
+    <FunctionImportMapping FunctionImportName="findClub" FunctionName="Milestone2Model.Store.findClub" />
+    <FunctionImportMapping FunctionImportName="findMatch" FunctionName="Milestone2Model.Store.findMatch" />
+    <FunctionImportMapping FunctionImportName="findStaduim" FunctionName="Milestone2Model.Store.findStaduim" />
+    <FunctionImportMapping FunctionImportName="purchaseTicket" FunctionName="Milestone2Model.Store.purchaseTicket" />
+    <FunctionImportMapping FunctionImportName="rejectRequest" FunctionName="Milestone2Model.Store.rejectRequest" />
+    <FunctionImportMapping FunctionImportName="unblockFan" FunctionName="Milestone2Model.Store.unblockFan" />
+    <FunctionImportMapping FunctionImportName="updateMatchHost" FunctionName="Milestone2Model.Store.updateMatchHost" />
+  </EntityContainerMapping>
+</Mapping>

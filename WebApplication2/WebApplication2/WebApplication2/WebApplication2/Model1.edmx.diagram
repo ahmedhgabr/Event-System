@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4602e0876cd7496d8c3eb8c8913a8546" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="Milestone2Model.Club" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.ClubRepresentative" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.Fan" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.HostRequest" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.Match" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.SportsAssociationManager" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.Stadium" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.StadiumManager" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.SystemAdmin" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.SystemUser" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.Ticket" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Milestone2Model.allFan" Width="1.5" PointX="8.75" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="Milestone2Model.FK__ClubRepre__Club___39E294A9" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__Match__Guest_Clu__3EA749C6" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__Match__Host_Club__3DB3258D" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__ClubRepre__usern__3AD6B8E2" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__HostReque__repre__4277DAAA" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__Fan__username__6D6238AF" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__HostReque__Manag__436BFEE3" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__HostReque__Match__4460231C" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__Match__Stadium_I__3F9B6DFF" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__Ticket__Match_ID__4A18FC72" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__SportsAss__usern__52AE4273" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__StadiumMa__Stadi__3429BB53" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__StadiumMa__usern__351DDF8C" ManuallyRouted="false" />
+        <AssociationConnector Association="Milestone2Model.FK__SystemAdm__usern__4FD1D5C8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Milestone2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="club_ID" />
+    </Key>
+    <Property Name="club_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Location" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ClubRepresentative">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Club_ID" Type="int" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Fan">
+    <Key>
+      <PropertyRef Name="National_ID" />
+    </Key>
+    <Property Name="National_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Birth_Date" Type="datetime" />
+    <Property Name="Address" Type="varchar" MaxLength="20" />
+    <Property Name="Phone_No" Type="varchar" MaxLength="20" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="HostRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="representative_ID" Type="int" />
+    <Property Name="Manager_ID" Type="int" />
+    <Property Name="Match_ID" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Match">
+    <Key>
+      <PropertyRef Name="match_ID" />
+    </Key>
+    <Property Name="match_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Start_Time" Type="datetime" />
+    <Property Name="end_time" Type="datetime" />
+    <Property Name="Host_Club_ID" Type="int" />
+    <Property Name="Guest_Club_ID" Type="int" />
+    <Property Name="Stadium_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="SportsAssociationManager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Stadium">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Location" Type="varchar" MaxLength="20" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="StadiumManager">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Stadium_ID" Type="int" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SystemAdmin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SystemUser">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Match_ID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.TicketBuyingTransactions' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TicketBuyingTransactions">
+          <Property Name="fan_national_ID" Type="varchar" MaxLength="20" />
+          <Property Name="ticket_ID" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allAssocManagers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allAssocManagers">
+          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allClubRepresentatives' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allClubRepresentatives">
+          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+          <Property Name="ClubRepresentatives" Type="varchar" MaxLength="20" />
+          <Property Name="Clubs" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allCLubs' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allCLubs">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="Location" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Milestone2.dbo.allFans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="allFans">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="National_ID" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="National_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Birth_Date" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allMatches' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allMatches">
+          <Property Name="HostClub" Type="varchar" MaxLength="20" />
+          <Property Name="GuestClub" Type="varchar" MaxLength="20" />
+          <Property Name="Start_Time" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allRequests' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allRequests">
+          <Property Name="ClubRepresentative" Type="varchar" MaxLength="20" />
+          <Property Name="StadiumManager" Type="varchar" MaxLength="20" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allStadiumManagers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allStadiumManagers">
+          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+          <Property Name="StadiumManagers" Type="varchar" MaxLength="20" />
+          <Property Name="Stadiums" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allStadiums' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allStadiums">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="location" Type="varchar" MaxLength="20" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="status" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.allTickets' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="allTickets">
+          <Property Name="HostClub" Type="varchar" MaxLength="20" />
+          <Property Name="GuestClub" Type="varchar" MaxLength="20" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="Start_Time" Type="datetime" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.clubsNeverMatched' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="clubsNeverMatched">
+          <Property Name="CLUB1" Type="varchar" MaxLength="20" />
+          <Property Name="CLUB2" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.clubsWithNoMatches' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="clubsWithNoMatches">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Milestone2.dbo.matchesPerTeam' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="matchesPerTeam">
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Match_NO" Type="int" />
+        </EntityType>-->
+  <Association Name="FK__ClubRepre__Club___39E294A9">
+    <End Role="Club" Type="Self.Club" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClubRepresentative" Type="Self.ClubRepresentative" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="club_ID" />
+      </Principal>
+      <Dependent Role="ClubRepresentative">
+        <PropertyRef Name="Club_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClubRepre__usern__3AD6B8E2">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1" />
+    <End Role="ClubRepresentative" Type="Self.ClubRepresentative" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="ClubRepresentative">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fan__username__6D6238AF">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Fan" Type="Self.Fan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Fan">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HostReque__Manag__436BFEE3">
+    <End Role="StadiumManager" Type="Self.StadiumManager" Multiplicity="0..1" />
+    <End Role="HostRequest" Type="Self.HostRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StadiumManager">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HostRequest">
+        <PropertyRef Name="Manager_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HostReque__Match__4460231C">
+    <End Role="Match" Type="Self.Match" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HostRequest" Type="Self.HostRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="match_ID" />
+      </Principal>
+      <Dependent Role="HostRequest">
+        <PropertyRef Name="Match_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HostReque__repre__4277DAAA">
+    <End Role="ClubRepresentative" Type="Self.ClubRepresentative" Multiplicity="0..1" />
+    <End Role="HostRequest" Type="Self.HostRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClubRepresentative">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HostRequest">
+        <PropertyRef Name="representative_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Match__Guest_Clu__3EA749C6">
+    <End Role="Club" Type="Self.Club" Multiplicity="0..1" />
+    <End Role="Match" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="club_ID" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="Guest_Club_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Match__Host_Club__3DB3258D">
+    <End Role="Club" Type="Self.Club" Multiplicity="0..1" />
+    <End Role="Match" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="club_ID" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="Host_Club_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Match__Stadium_I__3F9B6DFF">
+    <End Role="Stadium" Type="Self.Stadium" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Match" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stadium">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Match">
+        <PropertyRef Name="Stadium_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SportsAss__usern__52AE4273">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SportsAssociationManager" Type="Self.SportsAssociationManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="SportsAssociationManager">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StadiumMa__Stadi__3429BB53">
+    <End Role="Stadium" Type="Self.Stadium" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StadiumManager" Type="Self.StadiumManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stadium">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StadiumManager">
+        <PropertyRef Name="Stadium_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StadiumMa__usern__351DDF8C">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1" />
+    <End Role="StadiumManager" Type="Self.StadiumManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="StadiumManager">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SystemAdm__usern__4FD1D5C8">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SystemAdmin" Type="Self.SystemAdmin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="SystemAdmin">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ticket__Match_ID__4A18FC72">
+    <End Role="Match" Type="Self.Match" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="match_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="Match_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'Milestone2.dbo.TicketBuyingTransactions' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__TicketBuy__fan_n__6F4A8121" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'Milestone2.dbo.TicketBuyingTransactions' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__TicketBuy__ticke__703EA55A" />-->
+  <Function Name="acceptRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StadiumManagerUserName" Type="varchar" Mode="In" />
+    <Parameter Name="HostName" Type="varchar" Mode="In" />
+    <Parameter Name="GuestName" Type="varchar" Mode="In" />
+    <Parameter Name="time" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="addAssociationManager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AssociationManager" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="addClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="club" Type="varchar" Mode="In" />
+    <Parameter Name="clublocation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="addFan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="NationalID" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="Phone" Type="varchar" Mode="In" />
+    <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="addHostRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ClubName" Type="varchar" Mode="In" />
+    <Parameter Name="StadiumName" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="addNewMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hostclub" Type="varchar" Mode="In" />
+    <Parameter Name="guestclub" Type="varchar" Mode="In" />
+    <Parameter Name="starttime" Type="datetime" Mode="In" />
+    <Parameter Name="endtime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="addRepresentative" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="ClubName" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="addStadium" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stadium" Type="varchar" Mode="In" />
+    <Parameter Name="location" Type="varchar" Mode="In" />
+    <Parameter Name="capacity" Type="int" Mode="In" />
+  </Function>
+  <Function Name="addStadiumManager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="StadiumName" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="addTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hostclub" Type="varchar" Mode="In" />
+    <Parameter Name="guestclub" Type="varchar" Mode="In" />
+    <Parameter Name="starttime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="allPendingRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SM" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="ClubRepresentativeName" Type="varchar" MaxLength="20" />
+          <Property Name="GuestClubName" Type="varchar" MaxLength="20" />
+          <Property Name="Start_Time" Type="datetime" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="allUnassignedMatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HostClub" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Start_Time" Type="datetime" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="availableMatchesToAttend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="D" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="HostClubName" Type="varchar" MaxLength="20" />
+          <Property Name="GuestClubName" Type="varchar" MaxLength="20" />
+          <Property Name="Start_Time" Type="datetime" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="blockFan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NationalID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="clearAllTables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="createAllTables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="deleteClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="club" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="deleteMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hostclub" Type="varchar" Mode="In" />
+    <Parameter Name="guestclub" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="deleteMatchesOnStadium" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stadium" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="deleteStadium" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stadium" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="dropAllProceduresFunctionsViews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="dropAllTables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="findClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clubName" Type="varchar" Mode="In" />
+    <Parameter Name="cid" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="findMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hClubName" Type="varchar" Mode="In" />
+    <Parameter Name="guestClubName" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+    <Parameter Name="M" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="findStaduim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="staduimName" Type="varchar" Mode="In" />
+    <Parameter Name="sid" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="matchWithHighestAttendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="HostClubName" Type="varchar" MaxLength="20" />
+          <Property Name="GuestClubName" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="purchaseTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="n_id" Type="varchar" Mode="In" />
+    <Parameter Name="hClubName" Type="varchar" Mode="In" />
+    <Parameter Name="guestClubName" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="rejectRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StadiumManagerName" Type="varchar" Mode="In" />
+    <Parameter Name="HostName" Type="varchar" Mode="In" />
+    <Parameter Name="GuestName" Type="varchar" Mode="In" />
+    <Parameter Name="time" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="requestsFromClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stadiumName" Type="varchar" Mode="In" />
+    <Parameter Name="clubName" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="HostcluB" Type="varchar" MaxLength="20" />
+          <Property Name="GuestClub" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="unblockFan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NationalID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="upcomingMatchesOfClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="C" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="given_club" Type="varchar" MaxLength="20" />
+          <Property Name="competing_club" Type="varchar" MaxLength="20" />
+          <Property Name="Start_Time" Type="datetime" />
+          <Property Name="staduim" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="updateMatchHost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hClubName" Type="varchar" Mode="In" />
+    <Parameter Name="guestClubName" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="viewAvailableStadiumsOn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Location" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="Milestone2ModelStoreContainer">
+    <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClubRepresentative" EntityType="Self.ClubRepresentative" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fan" EntityType="Self.Fan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HostRequest" EntityType="Self.HostRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SportsAssociationManager" EntityType="Self.SportsAssociationManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stadium" EntityType="Self.Stadium" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StadiumManager" EntityType="Self.StadiumManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemAdmin" EntityType="Self.SystemAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="allFans" EntityType="Self.allFans" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [allFans].[username] AS [username], 
+    [allFans].[password] AS [password], 
+    [allFans].[Name] AS [Name], 
+    [allFans].[National_ID] AS [National_ID], 
+    [allFans].[Birth_Date] AS [Birth_Date], 
+    [allFans].[Status] AS [Status]
+    FROM [dbo].[allFans] AS [allFans]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__ClubRepre__Club___39E294A9" Association="Self.FK__ClubRepre__Club___39E294A9">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="ClubRepresentative" EntitySet="ClubRepresentative" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClubRepre__usern__3AD6B8E2" Association="Self.FK__ClubRepre__usern__3AD6B8E2">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="ClubRepresentative" EntitySet="ClubRepresentative" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fan__username__6D6238AF" Association="Self.FK__Fan__username__6D6238AF">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="Fan" EntitySet="Fan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HostReque__Manag__436BFEE3" Association="Self.FK__HostReque__Manag__436BFEE3">
+      <End Role="StadiumManager" EntitySet="StadiumManager" />
+      <End Role="HostRequest" EntitySet="HostRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HostReque__Match__4460231C" Association="Self.FK__HostReque__Match__4460231C">
+      <End Role="Match" EntitySet="Match" />
+      <End Role="HostRequest" EntitySet="HostRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HostReque__repre__4277DAAA" Association="Self.FK__HostReque__repre__4277DAAA">
+      <End Role="ClubRepresentative" EntitySet="ClubRepresentative" />
+      <End Role="HostRequest" EntitySet="HostRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Match__Guest_Clu__3EA749C6" Association="Self.FK__Match__Guest_Clu__3EA749C6">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="Match" EntitySet="Match" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Match__Host_Club__3DB3258D" Association="Self.FK__Match__Host_Club__3DB3258D">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="Match" EntitySet="Match" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Match__Stadium_I__3F9B6DFF" Association="Self.FK__Match__Stadium_I__3F9B6DFF">
+      <End Role="Stadium" EntitySet="Stadium" />
+      <End Role="Match" EntitySet="Match" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SportsAss__usern__52AE4273" Association="Self.FK__SportsAss__usern__52AE4273">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="SportsAssociationManager" EntitySet="SportsAssociationManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StadiumMa__Stadi__3429BB53" Association="Self.FK__StadiumMa__Stadi__3429BB53">
+      <End Role="Stadium" EntitySet="Stadium" />
+      <End Role="StadiumManager" EntitySet="StadiumManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StadiumMa__usern__351DDF8C" Association="Self.FK__StadiumMa__usern__351DDF8C">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="StadiumManager" EntitySet="StadiumManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SystemAdm__usern__4FD1D5C8" Association="Self.FK__SystemAdm__usern__4FD1D5C8">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="SystemAdmin" EntitySet="SystemAdmin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ticket__Match_ID__4A18FC72" Association="Self.FK__Ticket__Match_ID__4A18FC72">
+      <End Role="Match" EntitySet="Match" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
